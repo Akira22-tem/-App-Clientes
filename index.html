@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🔥 Sistema de Gestión de Clientes - Modo Épico</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts - Anime Style -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS Personalizado -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Contenedor principal épico -->
+    <div class="container-fluid">
+      <div class="epic-container">
+        <!-- Título épico -->
+        <h1 class="epic-title">
+          <i class="fas fa-users-cog me-3"></i>
+          Sistema de Gestión de Clientes
+        </h1>
+
+        <!-- Contenedor de alertas -->
+        <div id="alert-container"></div>
+
+        <!-- Panel de control épico -->
+        <div class="row mb-4">
+          <div class="col-md-8">
+            <div class="search-epic">
+              <input
+                type="text"
+                id="buscar-input"
+                class="form-control form-control-epic"
+                placeholder="🔥 Buscar clientes épicos... (Nombres, Apellidos, Cédula, Contacto)"
+              />
+            </div>
+          </div>
+          <div class="col-md-4 text-end">
+            <button class="btn btn-epic btn-fire" onclick="abrirModalNuevo()">
+              <i class="fas fa-user-plus me-2"></i>
+              Nuevo Cliente
+            </button>
+          </div>
+        </div>
+
+        <!-- Indicador de carga épico -->
+        <div id="loading" class="loading-epic" style="display: none">
+          <div class="spinner-epic"></div>
+          <h4>🔥 Cargando datos épicos...</h4>
+          <p>Preparando la batalla de datos...</p>
+        </div>
+
+        <!-- Tabla épica de clientes -->
+        <div class="table-responsive">
+          <table class="table table-epic">
+            <thead>
+              <tr>
+                <th><i class="fas fa-hashtag me-2"></i>ID</th>
+                <th><i class="fas fa-id-card me-2"></i>Cédula</th>
+                <th><i class="fas fa-user me-2"></i>Nombres</th>
+                <th><i class="fas fa-users me-2"></i>Apellidos</th>
+                <th><i class="fas fa-phone me-2"></i>Contacto</th>
+                <th><i class="fas fa-cogs me-2"></i>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-clientes" class="epic-fade-in">
+              <!-- Los datos se cargarán dinámicamente -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal épico para cliente -->
+    <div class="modal fade modal-epic" id="modalCliente" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title">
+              <i class="fas fa-user-plus me-2"></i>
+              Nuevo Cliente
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="form-cliente">
+              <input type="hidden" id="cliente-id" />
+
+              <div class="mb-3">
+                <label for="ci" class="form-label form-label-epic">
+                  <i class="fas fa-id-card me-2"></i>
+                  Cédula de Identidad
+                </label>
+                <input
+                  type="text"
+                  class="form-control form-control-epic"
+                  id="ci"
+                  placeholder="Ingrese la cédula épica..."
+                  required
+                />
+                <div class="invalid-feedback"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="nombres" class="form-label form-label-epic">
+                  <i class="fas fa-user me-2"></i>
+                  Nombres del Cliente
+                </label>
+                <input
+                  type="text"
+                  class="form-control form-control-epic"
+                  id="nombres"
+                  placeholder="Nombres épicos..."
+                  required
+                />
+                <div class="invalid-feedback"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="apellidos" class="form-label form-label-epic">
+                  <i class="fas fa-users me-2"></i>
+                  Apellidos del Cliente
+                </label>
+                <input
+                  type="text"
+                  class="form-control form-control-epic"
+                  id="apellidos"
+                  placeholder="Apellidos de leyenda..."
+                  required
+                />
+                <div class="invalid-feedback"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="contacto" class="form-label form-label-epic">
+                  <i class="fas fa-phone me-2"></i>
+                  Contacto de Batalla
+                </label>
+                <input
+                  type="text"
+                  class="form-control form-control-epic"
+                  id="contacto"
+                  placeholder="Email/Teléfono épico..."
+                  required
+                />
+                <div class="invalid-feedback"></div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-epic btn-steel"
+              data-bs-dismiss="modal"
+            >
+              <i class="fas fa-times me-2"></i>
+              Cancelar
+            </button>
+            <button
+              type="button"
+              class="btn btn-epic btn-fire"
+              onclick="guardarCliente()"
+            >
+              <i class="fas fa-save me-2"></i>
+              Guardar Cliente
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript Principal -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

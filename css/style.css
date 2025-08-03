@@ -1,0 +1,733 @@
+/* style.css - Estilos Épicos para Sistema de Gestión de Clientes */
+
+/* ==================== VARIABLES ÉPICAS ==================== */
+:root {
+  --flame-red: #ff4444;
+  --burning-orange: #ff8800;
+  --golden-yellow: #ffdd00;
+  --steel-gray: #2c2c2c;
+  --shadow-black: #0a0a0a;
+  --ghost-white: #f8f8f8;
+  --crimson-glow: #ff0066;
+  --ember-orange: #ff6600;
+
+  --epic-gradient: linear-gradient(
+    135deg,
+    #ff4444 0%,
+    #ff8800 50%,
+    #ffdd00 100%
+  );
+  --shadow-gradient: linear-gradient(135deg, #0a0a0a 0%, #2c2c2c 100%);
+  --fire-glow: 0 0 20px rgba(255, 68, 68, 0.5);
+  --epic-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ==================== ESTILOS ÉPICOS GENERALES ==================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--shadow-black);
+  background-image: radial-gradient(
+      circle at 20% 80%,
+      rgba(255, 68, 68, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 136, 0, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
+      rgba(255, 221, 0, 0.05) 0%,
+      transparent 50%
+    );
+  min-height: 100vh;
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--ghost-white);
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23333" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ==================== CONTENEDOR ÉPICO ==================== */
+.epic-container {
+  background: linear-gradient(
+    135deg,
+    rgba(44, 44, 44, 0.95) 0%,
+    rgba(10, 10, 10, 0.98) 100%
+  );
+  border: 2px solid var(--flame-red);
+  border-radius: 20px;
+  box-shadow: var(--epic-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  margin: 2rem auto;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  max-width: 1200px;
+}
+
+.epic-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--epic-gradient);
+  animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 68, 68, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 68, 68, 0.8), 0 0 30px rgba(255, 136, 0, 0.4);
+  }
+}
+
+/* ==================== TÍTULO ÉPICO ==================== */
+.epic-title {
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: var(--epic-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(255, 68, 68, 0.5);
+  position: relative;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(255, 68, 68, 0.5));
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(255, 136, 0, 0.8));
+  }
+}
+
+.epic-title::before {
+  content: '⚔️';
+  position: absolute;
+  left: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  animation: swordSpin 4s linear infinite;
+}
+
+.epic-title::after {
+  content: '🔥';
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  animation: flameFlicker 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes swordSpin {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes flameFlicker {
+  0% {
+    transform: translateY(-50%) scale(1);
+  }
+  100% {
+    transform: translateY(-50%) scale(1.2);
+  }
+}
+
+/* ==================== BOTONES ÉPICOS ==================== */
+.btn-epic {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.btn-epic:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-epic:hover:before {
+  left: 100%;
+}
+
+.btn-fire {
+  background: linear-gradient(135deg, var(--flame-red), var(--burning-orange));
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 68, 68, 0.4);
+}
+
+.btn-fire:hover {
+  background: linear-gradient(
+    135deg,
+    var(--burning-orange),
+    var(--golden-yellow)
+  );
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 136, 0, 0.6);
+  color: var(--shadow-black);
+}
+
+.btn-steel {
+  background: linear-gradient(135deg, var(--steel-gray), var(--shadow-black));
+  color: var(--ghost-white);
+  border: 1px solid var(--flame-red);
+  box-shadow: 0 4px 15px rgba(44, 44, 44, 0.4);
+}
+
+.btn-steel:hover {
+  background: linear-gradient(135deg, var(--flame-red), var(--steel-gray));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 68, 68, 0.5);
+  color: white;
+}
+
+.btn-warning-epic {
+  background: linear-gradient(
+    135deg,
+    var(--golden-yellow),
+    var(--burning-orange)
+  );
+  color: var(--shadow-black);
+  box-shadow: 0 4px 15px rgba(255, 221, 0, 0.4);
+}
+
+.btn-warning-epic:hover {
+  background: linear-gradient(135deg, var(--burning-orange), var(--flame-red));
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 136, 0, 0.6);
+}
+
+.btn-danger-epic {
+  background: linear-gradient(135deg, var(--crimson-glow), var(--flame-red));
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 0, 102, 0.4);
+}
+
+.btn-danger-epic:hover {
+  background: linear-gradient(135deg, var(--flame-red), var(--crimson-glow));
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 0, 102, 0.6);
+}
+
+/* ==================== FORMULARIOS ÉPICOS ==================== */
+.form-control-epic {
+  background: rgba(44, 44, 44, 0.8);
+  border: 2px solid var(--steel-gray);
+  border-radius: 10px;
+  color: var(--ghost-white);
+  padding: 12px 16px;
+  transition: var(--transition);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+}
+
+.form-control-epic:focus {
+  background: rgba(44, 44, 44, 0.95);
+  border-color: var(--flame-red);
+  box-shadow: 0 0 15px rgba(255, 68, 68, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  color: var(--ghost-white);
+  transform: translateY(-1px);
+}
+
+.form-control-epic::placeholder {
+  color: rgba(248, 248, 248, 0.6);
+}
+
+.form-label-epic {
+  color: var(--golden-yellow);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-control-epic.is-valid {
+  border-color: var(--golden-yellow);
+  box-shadow: 0 0 10px rgba(255, 221, 0, 0.3);
+}
+
+.form-control-epic.is-invalid {
+  border-color: var(--crimson-glow);
+  box-shadow: 0 0 10px rgba(255, 0, 102, 0.3);
+  animation: epicShake 0.5s ease-in-out;
+}
+
+@keyframes epicShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+}
+
+/* ==================== TABLA ÉPICA - CORREGIDA ==================== */
+.table-epic {
+  background: white !important;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--epic-shadow);
+  border: 1px solid var(--steel-gray);
+}
+
+.table-epic thead {
+  background: var(--epic-gradient);
+  color: var(--shadow-black);
+}
+
+.table-epic thead th {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  font-size: 0.9rem;
+  color: var(--shadow-black) !important;
+}
+
+.table-epic tbody {
+  background: white !important;
+}
+
+.table-epic tbody td {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 68, 68, 0.2);
+  vertical-align: middle;
+  background: white !important;
+  color: #0a0a0a !important;
+}
+
+.table-epic tbody tr {
+  transition: var(--transition);
+  position: relative;
+  background: white !important;
+}
+
+.table-epic tbody tr:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 68, 68, 0.1),
+    rgba(255, 136, 0, 0.1)
+  ) !important;
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(255, 68, 68, 0.2);
+}
+
+.table-epic tbody tr:hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--epic-gradient);
+}
+
+/* ==================== BADGES ÉPICOS ==================== */
+.badge-epic {
+  background: var(--epic-gradient);
+  color: var(--shadow-black);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==================== MODAL ÉPICO ==================== */
+.modal-epic .modal-content {
+  background: var(--shadow-gradient);
+  border: 2px solid var(--flame-red);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: var(--epic-shadow);
+}
+
+.modal-epic .modal-header {
+  background: var(--epic-gradient);
+  color: var(--shadow-black);
+  border: none;
+  padding: 20px 30px;
+  border-radius: 18px 18px 0 0;
+}
+
+.modal-epic .modal-title {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.modal-epic .modal-body {
+  background: rgba(44, 44, 44, 0.8);
+  padding: 30px;
+}
+
+.modal-epic .modal-footer {
+  background: rgba(10, 10, 10, 0.9);
+  border: none;
+  padding: 20px 30px;
+  border-radius: 0 0 18px 18px;
+}
+
+/* ==================== ALERTAS ÉPICAS ==================== */
+.alert-epic {
+  border: none;
+  border-radius: 15px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+  animation: epicSlideIn 0.5s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes epicSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.alert-success-epic {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 221, 0, 0.9),
+    rgba(255, 136, 0, 0.9)
+  );
+  color: var(--shadow-black);
+  box-shadow: 0 4px 15px rgba(255, 221, 0, 0.4);
+}
+
+.alert-danger-epic {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 102, 0.9),
+    rgba(255, 68, 68, 0.9)
+  );
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 0, 102, 0.4);
+}
+
+.alert-warning-epic {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 136, 0, 0.9),
+    rgba(255, 221, 0, 0.9)
+  );
+  color: var(--shadow-black);
+  box-shadow: 0 4px 15px rgba(255, 136, 0, 0.4);
+}
+
+.alert-info-epic {
+  background: linear-gradient(
+    135deg,
+    rgba(44, 44, 44, 0.9),
+    rgba(255, 68, 68, 0.2)
+  );
+  color: var(--ghost-white);
+  border: 1px solid var(--flame-red);
+  box-shadow: 0 4px 15px rgba(255, 68, 68, 0.2);
+}
+
+/* ==================== LOADING ÉPICO ==================== */
+.loading-epic {
+  text-align: center;
+  padding: 3rem;
+  color: var(--golden-yellow);
+}
+
+.spinner-epic {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 68, 68, 0.3);
+  border-top: 4px solid var(--flame-red);
+  border-radius: 50%;
+  animation: epicSpin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes epicSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==================== BÚSQUEDA ÉPICA ==================== */
+.search-epic {
+  position: relative;
+}
+
+.search-epic .form-control-epic {
+  padding-left: 50px;
+  background: rgba(10, 10, 10, 0.8);
+  border: 2px solid var(--steel-gray);
+}
+
+.search-epic::before {
+  content: '🔍';
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  z-index: 10;
+}
+
+/* ==================== RESPONSIVE ÉPICO ==================== */
+@media (max-width: 768px) {
+  .epic-title {
+    font-size: 2rem;
+  }
+
+  .epic-title::before,
+  .epic-title::after {
+    display: none;
+  }
+
+  .epic-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .btn-epic {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .table-epic {
+    font-size: 0.9rem;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .btn-group .btn-epic {
+    border-radius: 20px !important;
+    margin-bottom: 0.25rem;
+  }
+
+  .btn-group .btn-epic:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .epic-title {
+    font-size: 1.5rem;
+  }
+
+  .table-epic thead {
+    display: none;
+  }
+
+  .table-epic tbody td {
+    display: block;
+    text-align: right;
+    border: none;
+    padding: 0.5rem 1rem;
+    position: relative;
+  }
+
+  .table-epic tbody td:before {
+    content: attr(data-label) ': ';
+    font-weight: bold;
+    float: left;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--golden-yellow);
+  }
+
+  .table-epic tbody tr {
+    display: block;
+    margin-bottom: 1rem;
+    background: white !important;
+    border-radius: 15px;
+    box-shadow: var(--epic-shadow);
+    padding: 0.5rem;
+    border: 1px solid var(--flame-red);
+  }
+}
+
+/* ==================== ANIMACIONES ÉPICAS ==================== */
+.epic-fade-in {
+  animation: epicFadeIn 0.6s ease-out;
+}
+
+@keyframes epicFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== EFECTOS ESPECIALES ==================== */
+.epic-glow {
+  position: relative;
+}
+
+.epic-glow::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--epic-gradient);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.epic-glow:hover::after {
+  opacity: 1;
+}
+
+/* ==================== SCROLL PERSONALIZADO ÉPICO ==================== */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--shadow-black);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--epic-gradient);
+  border-radius: 10px;
+  border: 2px solid var(--shadow-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--crimson-glow), var(--flame-red));
+}
+
+/* ==================== ESTADOS DE FOCUS ÉPICOS ==================== */
+.btn-epic:focus,
+.form-control-epic:focus,
+.btn-close:focus {
+  outline: 2px solid var(--flame-red);
+  outline-offset: 2px;
+}
+
+/* ==================== TOOLTIPS ÉPICOS ==================== */
+.tooltip .tooltip-inner {
+  background: var(--epic-gradient);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: var(--shadow-black);
+  font-weight: 600;
+}
+
+.tooltip .tooltip-arrow::before {
+  border-top-color: var(--flame-red);
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .epic-container {
+    background: white;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  .btn-epic,
+  .modal-epic,
+  .alert-epic {
+    display: none !important;
+  }
+
+  .table-epic {
+    border-collapse: collapse;
+    background: white;
+  }
+
+  .table-epic th,
+  .table-epic td {
+    border: 1px solid #ddd;
+    color: black;
+  }
+
+  .table-epic thead {
+    background: #f5f5f5;
+  }
+}
