@@ -1,6 +1,6 @@
 /* style.css - Estilos Épicos para Sistema de Gestión de Clientes */
 
-/* ==================== VARIABLES ÉPICAS ==================== */
+/*VARIABLES  */
 :root {
   --flame-red: #ff4444;
   --burning-orange: #ff8800;
@@ -23,7 +23,7 @@
   --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* ==================== ESTILOS ÉPICOS GENERALES ==================== */
+/* ESTILOS ÉPICOS GENERALES */
 * {
   box-sizing: border-box;
 }
@@ -64,7 +64,7 @@ body::before {
   z-index: -1;
 }
 
-/* ==================== CONTENEDOR ÉPICO ==================== */
+/* CONTENEDOR  */
 .epic-container {
   background: linear-gradient(
     135deg,
@@ -102,7 +102,7 @@ body::before {
   }
 }
 
-/* ==================== TÍTULO ÉPICO ==================== */
+/* TÍTULO  */
 .epic-title {
   font-family: 'Orbitron', monospace;
   font-weight: 900;
@@ -165,7 +165,7 @@ body::before {
   }
 }
 
-/* ==================== BOTONES ÉPICOS ==================== */
+/*BOTONES  */
 .btn-epic {
   font-family: 'Orbitron', monospace;
   font-weight: 700;
@@ -260,7 +260,7 @@ body::before {
   box-shadow: 0 6px 20px rgba(255, 0, 102, 0.6);
 }
 
-/* ==================== FORMULARIOS ÉPICOS ==================== */
+/*  FORMULARIOS  */
 .form-control-epic {
   background: rgba(44, 44, 44, 0.8);
   border: 2px solid var(--steel-gray);
@@ -318,7 +318,7 @@ body::before {
   }
 }
 
-/* ==================== TABLA ÉPICA - CORREGIDA ==================== */
+/* TABLA   */
 .table-epic {
   background: white !important;
   border-radius: 15px;
@@ -381,7 +381,7 @@ body::before {
   background: var(--epic-gradient);
 }
 
-/* ==================== BADGES ÉPICOS ==================== */
+/* BADGES  */
 .badge-epic {
   background: var(--epic-gradient);
   color: var(--shadow-black);
@@ -393,7 +393,7 @@ body::before {
   letter-spacing: 0.5px;
 }
 
-/* ==================== MODAL ÉPICO ==================== */
+/* MODAL  */
 .modal-epic .modal-content {
   background: var(--shadow-gradient);
   border: 2px solid var(--flame-red);
@@ -429,7 +429,7 @@ body::before {
   border-radius: 0 0 18px 18px;
 }
 
-/* ==================== ALERTAS ÉPICAS ==================== */
+/*  ALERTAS  */
 .alert-epic {
   border: none;
   border-radius: 15px;
@@ -493,7 +493,7 @@ body::before {
   box-shadow: 0 4px 15px rgba(255, 68, 68, 0.2);
 }
 
-/* ==================== LOADING ÉPICO ==================== */
+/*  LOADING  */
 .loading-epic {
   text-align: center;
   padding: 3rem;
@@ -519,7 +519,7 @@ body::before {
   }
 }
 
-/* ==================== BÚSQUEDA ÉPICA ==================== */
+/* BÚSQUEDA  */
 .search-epic {
   position: relative;
 }
@@ -540,7 +540,7 @@ body::before {
   z-index: 10;
 }
 
-/* ==================== RESPONSIVE ÉPICO ==================== */
+/* RESPONSIVE  */
 @media (max-width: 768px) {
   .epic-title {
     font-size: 2rem;
@@ -616,7 +616,7 @@ body::before {
   }
 }
 
-/* ==================== ANIMACIONES ÉPICAS ==================== */
+/* ANIMACIONES  */
 .epic-fade-in {
   animation: epicFadeIn 0.6s ease-out;
 }
@@ -632,7 +632,7 @@ body::before {
   }
 }
 
-/* ==================== EFECTOS ESPECIALES ==================== */
+/* EFECTOS ESPECIALES  */
 .epic-glow {
   position: relative;
 }
@@ -655,7 +655,7 @@ body::before {
   opacity: 1;
 }
 
-/* ==================== SCROLL PERSONALIZADO ÉPICO ==================== */
+/* SCROLL PERSONALIZADO  */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -675,7 +675,7 @@ body::before {
   background: linear-gradient(135deg, var(--crimson-glow), var(--flame-red));
 }
 
-/* ==================== ESTADOS DE FOCUS ÉPICOS ==================== */
+/* ESTADOS DE FOCUS  */
 .btn-epic:focus,
 .form-control-epic:focus,
 .btn-close:focus {
@@ -683,7 +683,7 @@ body::before {
   outline-offset: 2px;
 }
 
-/* ==================== TOOLTIPS ÉPICOS ==================== */
+/*  TOOLTIPS  */
 .tooltip .tooltip-inner {
   background: var(--epic-gradient);
   border-radius: 8px;
@@ -697,7 +697,7 @@ body::before {
   border-top-color: var(--flame-red);
 }
 
-/* ==================== PRINT STYLES ==================== */
+/* PRINT STYLES  */
 @media print {
   body {
     background: white;

@@ -1,4 +1,4 @@
-// main.js - Lógica JavaScript para Gestión de Clientes Épicos
+// main.js - Lógica JavaScript para Gestión de Clientes
 // Configuración de la API
 const API_URL = 'http://localhost:8889/api/clientes';
 const modal = new bootstrap.Modal(document.getElementById('modalCliente'));
@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded', function () {
   );
 });
 
-// ==================== FUNCIONES DE UTILIDAD ÉPICAS ====================
+//  FUNCIONES DE UTILIDAD
 
 /**
- * Mostrar alertas épicas al usuario
+ * Mostrar alertas al usuario
  * @param {string} mensaje - Mensaje a mostrar
  * @param {string} tipo - Tipo de alerta (success, danger, warning, info)
  */
@@ -56,7 +56,7 @@ function mostrarAlerta(mensaje, tipo = 'info') {
 }
 
 /**
- * Mostrar/ocultar indicador de carga épico
+ * Mostrar/ocultar indicador de carga
  * @param {boolean} show - Mostrar o ocultar
  */
 function toggleLoading(show) {
@@ -66,10 +66,10 @@ function toggleLoading(show) {
   }
 }
 
-// ==================== FUNCIONES DE API ÉPICAS ====================
+// FUNCIONES DE API
 
 /**
- * Listar todos los clientes épicos
+ * Listar todos los clientes
  */
 function listarClientes() {
   toggleLoading(true);
@@ -105,7 +105,7 @@ function listarClientes() {
 }
 
 /**
- * Renderizar tabla épica de clientes
+ * Renderizar tabla de clientes
  * @param {Array} clientes - Array de clientes
  */
 function renderizarTabla(clientes) {
@@ -188,10 +188,10 @@ function renderizarTabla(clientes) {
   });
 }
 
-// ==================== FUNCIONES DE BÚSQUEDA ÉPICA ====================
+// FUNCIONES DE BÚSQUEDA
 
 /**
- * Configurar búsqueda épica en tiempo real
+ * Configurar búsqueda en tiempo real
  */
 function configurarBusqueda() {
   const buscarInput = document.getElementById('buscar-input');
@@ -220,7 +220,7 @@ function configurarBusqueda() {
 }
 
 /**
- * Buscar clientes épicos por término
+ * Buscar clientes por término
  * @param {string} termino - Término de búsqueda
  */
 function buscarClientes(termino) {
@@ -260,10 +260,10 @@ function buscarClientes(termino) {
     });
 }
 
-// ==================== FUNCIONES DEL MODAL ÉPICO ====================
+// FUNCIONES DEL MODAL
 
 /**
- * Abrir modal épico para nuevo cliente
+ * Abrir modal para nuevo cliente
  */
 function abrirModalNuevo() {
   limpiarFormulario();
@@ -273,7 +273,7 @@ function abrirModalNuevo() {
 }
 
 /**
- * Limpiar formulario épico del modal
+ * Limpiar formulario del modal
  */
 function limpiarFormulario() {
   document.getElementById('cliente-id').value = '';
@@ -294,10 +294,10 @@ function limpiarFormulario() {
   });
 }
 
-// ==================== FUNCIONES CRUD ÉPICAS ====================
+// FUNCIONES CRUD
 
 /**
- * Guardar cliente épico (crear o actualizar)
+ * Guardar cliente (crear o actualizar)
  */
 function guardarCliente() {
   if (!validarFormulario()) {
@@ -377,7 +377,7 @@ function guardarCliente() {
 }
 
 /**
- * Editar cliente épico existente
+ * Editar cliente existente
  * @param {number} id - ID del cliente
  */
 function editarCliente(id) {
@@ -413,7 +413,7 @@ function editarCliente(id) {
 }
 
 /**
- * Eliminar cliente épico
+ * Eliminar cliente
  * @param {number} id - ID del cliente
  */
 function eliminarCliente(id) {
@@ -451,7 +451,7 @@ function eliminarCliente(id) {
 }
 
 /**
- * Realizar eliminación épica del cliente
+ * Realizar eliminación del cliente
  * @param {number} id - ID del cliente
  */
 function realizarEliminacion(id) {
@@ -482,7 +482,7 @@ function realizarEliminacion(id) {
     });
 }
 
-// ==================== VALIDACIONES ÉPICAS ====================
+// VALIDACIONES
 
 /**
  * Configurar validación épica en tiempo real del formulario
@@ -577,7 +577,7 @@ function validarFormulario() {
   return esValido;
 }
 
-// ==================== FUNCIONES DE UTILIDAD ADICIONALES ====================
+// FUNCIONES DE UTILIDAD ADICIONALES
 
 /**
  * Formatear texto para mostrar
@@ -593,7 +593,7 @@ function truncateText(texto, maxLength = 30) {
 }
 
 /**
- * Exportar datos épicos a CSV
+ * Exportar datos a CSV
  */
 function exportarCSV() {
   fetch(API_URL)
@@ -631,7 +631,7 @@ function exportarCSV() {
     });
 }
 
-// ==================== EVENTOS GLOBALES ÉPICOS ====================
+// EVENTOS GLOBALES
 
 // Manejar errores de red globalmente
 window.addEventListener('online', () => {
